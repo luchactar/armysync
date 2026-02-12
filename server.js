@@ -56,7 +56,7 @@ app.get("/get-team/:username", (req, res) => {
         return res.json({ team: "Ejercito" });
     }
 
-    if (user.divisions.length > 0) {
+    if (user.divisions && user.divisions.length > 0) {
         const random = user.divisions[Math.floor(Math.random() * user.divisions.length)];
         return res.json({ team: random });
     }
@@ -64,6 +64,8 @@ app.get("/get-team/:username", (req, res) => {
     return res.json({ team: "Civil" });
 });
 
-app.listen(3000, () => {
-    console.log("Servidor funcionando en puerto 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Servidor funcionando en puerto " + PORT);
 });
