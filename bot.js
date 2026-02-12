@@ -32,7 +32,7 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
         }
     });
 
-    await axios.post(API, {
+    await axios.post(API + "/update-user", {
         secret: SECRET,
         username: username,
         mainRole: hasMainRole,
